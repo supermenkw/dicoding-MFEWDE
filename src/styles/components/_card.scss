@@ -1,0 +1,42 @@
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    transition: 0.3s;
+    background-color: white;
+
+    .title {
+        margin: 10px 0px;
+        color: #cc6600;
+
+        a {
+            color: #cc6600;
+        }
+    }
+
+    .card-content {
+        padding: 16px 16px;
+    }
+
+    .location {
+        z-index: 1;
+        font-weight: 600;
+        font-size: medium;
+        text-align: center;
+        position: absolute; 
+        margin: 1.5% 1.5% 1.5% 0;
+        padding: 0.25% 1%;
+        color:white; 
+        background: #cc6600;
+        border-radius: 0px 5px 5px 0px;
+        box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.25);
+    }
+
+    &:hover {
+        text-decoration: none;
+    }
+
+}
+
+.card:hover {
+    box-shadow: 0 12px 20px 0 rgba(0, 0, 0, 0.5);
+}
+

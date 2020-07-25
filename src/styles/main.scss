@@ -1,0 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap');
+
+@import "./global";
+
+@import "./components/navbar";
+@import "./components/hero";
+@import "./components/card";
+
+@import "./responsive/small";
+@import "./responsive/medium";
+@import "./responsive/large";
+@import "./responsive/xlarge";
+
+@import "./components/footer";

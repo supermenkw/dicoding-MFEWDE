@@ -1,0 +1,410 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap");
+html, *, body {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Open Sans', sans-serif;
+}
+
+html a, * a, body a {
+  text-decoration: none;
+}
+
+html a:hover, * a:hover, body a:hover {
+  text-decoration: none;
+}
+
+body {
+  background-color: #ebebeb;
+}
+
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background-color: #cc6600;
+  color: white;
+  padding: 8px;
+  z-index: 999;
+}
+
+.skip-link:focus {
+  top: 0;
+}
+
+.h2 {
+  margin: 30px;
+  color: #cc6600;
+  font-size: 3.5vw;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.fluid-container {
+  width: 100%;
+}
+
+.nav {
+  width: 100%;
+  overflow: hidden;
+  position: fixed;
+  -webkit-box-shadow: 0px 0px 16px 0px rgba(0, 0, 0, 0.2);
+          box-shadow: 0px 0px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 888;
+}
+
+.nav .brand {
+  z-index: 999;
+  text-align: left;
+  position: absolute;
+  margin: 1.3vw 0 0 10%;
+}
+
+.nav .brand a {
+  padding: 0;
+  color: white;
+}
+
+.nav .brand a:hover {
+  text-decoration: none;
+  background-color: orange;
+}
+
+.nav a {
+  display: inline-block;
+  padding: 1.3em;
+  text-decoration: none;
+  color: white;
+}
+
+.nav a:hover {
+  text-decoration: none;
+  color: white;
+  background-color: #cc6600;
+}
+
+.hero {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 100vh;
+  width: 100%;
+  text-align: center;
+  background: -webkit-gradient(linear, left bottom, left top, from(rgba(0, 0, 0, 0.6)), to(rgba(0, 0, 0, 0.6))), url("../public/hero-image_2.jpg");
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("../public/hero-image_2.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.hero__inner {
+  margin: 0 auto;
+  max-width: 800px;
+  padding: 7%;
+}
+
+.hero__title {
+  color: #fff;
+  font-weight: 600;
+  font-size: xx-large;
+}
+
+.hero__tagline {
+  color: #fff;
+  margin-top: 16px;
+  font-size: x-large;
+  font-weight: 300;
+}
+
+.card {
+  -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+          box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  background-color: white;
+}
+
+.card .title {
+  margin: 10px 0px;
+  color: #cc6600;
+}
+
+.card .title a {
+  color: #cc6600;
+}
+
+.card .card-content {
+  padding: 16px 16px;
+}
+
+.card .location {
+  z-index: 1;
+  font-weight: 600;
+  font-size: medium;
+  text-align: center;
+  position: absolute;
+  margin: 1.5% 1.5% 1.5% 0;
+  padding: 0.25% 1%;
+  color: white;
+  background: #cc6600;
+  border-radius: 0px 5px 5px 0px;
+  -webkit-box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.25);
+          box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.25);
+}
+
+.card:hover {
+  text-decoration: none;
+}
+
+.card:hover {
+  -webkit-box-shadow: 0 12px 20px 0 rgba(0, 0, 0, 0.5);
+          box-shadow: 0 12px 20px 0 rgba(0, 0, 0, 0.5);
+}
+
+@media screen and (max-width: 650px) {
+  .mobile-navbar {
+    background-color: orange;
+    height: 12vw;
+    color: white;
+    -webkit-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
+            box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
+  }
+  .mobile-navbar .mobile-brand {
+    position: absolute;
+    margin: 2.3% 0px 0px 40vw;
+    font-size: 5.5vw;
+    z-index: 9;
+  }
+  .mobile-navbar .mobile-brand a {
+    text-decoration: none;
+    color: white;
+  }
+  .mobile-navbar .mobile-brand a:hover {
+    text-decoration: none;
+  }
+  .mobile-navbar #menu {
+    font-size: 9vw;
+  }
+  .brand {
+    display: none;
+  }
+  .nav {
+    background-color: orange;
+    color: white;
+    z-index: 10;
+    width: 50%;
+    position: absolute;
+    /* This trasform moves the drawer off canvas. */
+    -webkit-transform: translate(-400px, 0);
+    transform: translate(-400px, 0);
+    /* Optionally, we animate the drawer. */
+    -webkit-transition: -webkit-transform 0.3s ease;
+    transition: -webkit-transform 0.3s ease;
+    transition: transform 0.3s ease;
+    transition: transform 0.3s ease, -webkit-transform 0.3s ease;
+  }
+  .open {
+    -webkit-transform: translate(0, 0);
+    transform: translate(0, 0);
+  }
+  .menu-item {
+    display: list-item;
+    border-bottom: 1px solid white;
+    width: 100%;
+    font-size: 5vw;
+  }
+  .menu-item a {
+    color: white;
+  }
+  .menu-item a:hover {
+    text-decoration: none;
+    color: white;
+  }
+  .burger {
+    list-style: none;
+    margin-left: 5%;
+    text-align: start;
+  }
+  .hero__title {
+    color: #fff;
+    font-weight: 600;
+    font-size: x-larger;
+  }
+  .hero__tagline {
+    color: #fff;
+    margin-top: 16px;
+    font-size: larger;
+    font-weight: 300;
+  }
+  .h2 {
+    margin: 30px;
+    color: #cc6600;
+    font-size: 8vw;
+  }
+  .container {
+    width: auto;
+    margin: 5% 5%;
+  }
+  .grid-wrapper {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
+    row-gap: 20px;
+  }
+  .card img {
+    width: 100%;
+    max-height: 200px;
+    -o-object-fit: cover;
+       object-fit: cover;
+  }
+  .card .location {
+    width: 25%;
+    margin: 5% 5% 5% 0;
+    padding: 0.25% 1%;
+  }
+  .card .rating {
+    font-size: 5vw;
+  }
+  .card .title {
+    font-size: 6vw;
+  }
+  .card .description {
+    font-size: 5vw;
+  }
+}
+
+@media screen and (min-width: 651px) {
+  .mobile-navbar {
+    display: none;
+  }
+  .nav {
+    background-color: orange;
+    height: 7.5vw;
+  }
+  .nav .brand {
+    font-size: 3vw;
+    margin: 1.3vw 0 0 10%;
+  }
+  .nav .menu {
+    font-size: 2vw;
+    text-align: right;
+    margin-right: 10%;
+  }
+  .nav .menu .menu-item {
+    display: inline;
+  }
+  .h2 {
+    margin: 30px;
+    color: #cc6600;
+    font-size: 2.7vw;
+  }
+  .container {
+    width: 80%;
+    margin: 5% auto;
+  }
+  .grid-wrapper {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: (1fr)[2];
+        grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+  }
+  .card img {
+    width: 100%;
+    max-height: 160px;
+    -o-object-fit: cover;
+       object-fit: cover;
+  }
+  .card .location {
+    width: 12%;
+  }
+  .card .rating {
+    font-size: 2.5vw;
+  }
+  .card .title {
+    font-size: 2.5vw;
+  }
+  .card .description {
+    font-size: 2vw;
+  }
+}
+
+@media screen and (min-width: 1025px) {
+  .nav {
+    height: 5vw;
+  }
+  .nav .brand {
+    margin: 0.4vw 0 0 10%;
+  }
+  .nav .menu {
+    font-size: 1.5vw;
+  }
+  .nav .menu a {
+    padding: 1.4vw 1vw;
+  }
+  .container {
+    width: 80%;
+    margin: 5% auto;
+  }
+  .grid-wrapper {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: (1fr)[3];
+        grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+  }
+  .card img {
+    width: 100%;
+    max-height: 165px;
+    -o-object-fit: cover;
+       object-fit: cover;
+  }
+  .card .location {
+    width: 7%;
+  }
+  .card .rating {
+    font-size: 1.3vw;
+  }
+  .card .title {
+    font-size: 1.5vw;
+  }
+  .card .description {
+    font-size: 1.3vw;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .card img {
+    width: 100%;
+    max-height: 195px;
+    -o-object-fit: cover;
+       object-fit: cover;
+  }
+}
+
+footer {
+  background-color: #cc6600;
+  padding: 2em;
+  width: 100%;
+  text-align: center;
+}
+
+footer ul {
+  margin: 0 auto;
+  display: inline-block;
+}
+
+footer li {
+  display: inline-block;
+  margin: 0 1em;
+  color: white;
+  font-size: 1em;
+}
+/*# sourceMappingURL=main.css.map */
