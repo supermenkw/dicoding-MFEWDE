@@ -1,5 +1,5 @@
 import RestaurantAPISource from '../../data/restaurantapi-source';
-import { createRestaurantListTempate } from '../templates/template-creator';
+import { createRestaurantListTempate, createFailedToFetchMessage } from '../templates/template-creator';
 
 const HomePage = {
     async render() {
@@ -15,6 +15,7 @@ const HomePage = {
         <section>
             <div class="container">
                 <h2 tabindex="0" class="text-center h2" id="content-title">Explore Places</h2>
+                <div class="loader"></div>
                 <div class="grid-wrapper" id="content">
                     
                 </div>
@@ -24,12 +25,23 @@ const HomePage = {
     },
 
     async afterRender() {
-        const restaurantList = await RestaurantAPISource.getRestaurantList();
         const restaurantListContainer = document.querySelector('#content');
-        
-        restaurantList.forEach((restaurant) => {
-            restaurantListContainer.innerHTML += createRestaurantListTempate(restaurant);
-        });
+
+        try {
+            const restaurantList = await RestaurantAPISource.getRestaurantList();
+            restaurantList.slice(1, 10).forEach((restaurant) => {
+                restaurantListContainer.innerHTML += createRestaurantListTempate(restaurant);
+            });
+    
+            await document.querySelector('.loader').remove();
+        }catch(error) {
+            restaurantListContainer.innerHTML += createFailedToFetchMessage(error);
+            const refresh = await document.querySelector('#refresh');
+
+            refresh.addEventListener('click', () => location.reload());
+            document.querySelector('.loader').remove();
+        }
+
     },
 };
 

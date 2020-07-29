@@ -1,7 +1,7 @@
 import 'regenerator-runtime/runtime'
-import {precacheAndRoute} from "workbox-precaching/precacheAndRoute.mjs";
+import {precacheAndRoute} from "workbox-precaching/precacheAndRoute";
 import {registerRoute} from "workbox-routing/registerRoute.mjs";
-import {StaleWhileRevalidate, CacheFirst} from "workbox-strategies";
+import {StaleWhileRevalidate, CacheFirst, NetworkFirst} from "workbox-strategies";
 import{ ExpirationPlugin } from 'workbox-expiration';
 import {clientsClaim, skipWaiting} from "workbox-core";
 import CONFIG from './globals/config';
@@ -12,8 +12,11 @@ precacheAndRoute(self.__WB_MANIFEST, {
 
 registerRoute(
     new RegExp(/^https:\/\/dicoding\-restaurant\-api\.el\.r\.appspot\.com(?!\/(images|review))/),
-    new StaleWhileRevalidate({
-        cacheName: 'api-response'
+    new NetworkFirst({
+        cacheName: 'api-response',
+        plugins: [{
+            maxAgeSeconds: 60 * 60 * 24 * 7
+        }]
     })
 );
 
@@ -28,7 +31,7 @@ registerRoute(
             })
         ]
     })
-);
+); 
 
 clientsClaim();
 skipWaiting();

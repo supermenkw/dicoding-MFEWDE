@@ -17,6 +17,10 @@ body {
     background-color: #f4f4f4;
 }
 
+main {
+    min-height: 77.5vh;
+}
+
 .inline-display {
     display: inline;
 }
@@ -47,4 +51,28 @@ body {
 
 .fluid-container {
     width: 100%;
+}
+
+.error-message {
+    font-size: xx-large;
+    margin: 40px auto;
+    color: #4d4d4d;
+    grid-column-start: 1;
+    grid-column-end: 4;
+    border: none;
+    
+    button {
+    padding: 8px 16px;
+    background: #01a4cd;
+    color: #f2f2f2;
+    border: none;
+    text-transform: uppercase;
+    letter-spacing: .09em;
+    border-radius: 5px;
+    font-size: medium;
+
+        &:hover {
+            background-color: #004a75;
+        }
+    }
 }

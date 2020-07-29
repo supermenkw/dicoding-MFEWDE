@@ -5,8 +5,8 @@ const createRestaurantListTempate = (restaurant) =>
     `<div class="card">
         <span class="location" tabindex="0" aria-label="lokasi ada di ${restaurant.city}">${restaurant.city}</span>
         <img src="${restaurant.pictureId ? 
-            CONFIG.BASE_IMAGE_URL + CONFIG.NORMAL_RESOLUTION + restaurant.pictureId
-            : 'https://dummyimage.com/811x540/a6a6a6/ffffff.png&text=404'}" alt="${restaurant.name} photo" tabindex="0">
+            CONFIG.BASE_IMAGE_URL + CONFIG.LOW_RESOLUTION + restaurant.pictureId
+            : null }" alt="${restaurant.name} photo" tabindex="0" crossorigin="anonymous">
         <div class="card-content">
             <span class="rating" tabindex="0">Rating ${restaurant.rating} / 5</span>
             <h3 class="title"><a href="${`/#/detail/${restaurant.id}`}">${restaurant.name}</a></h3> 
@@ -28,7 +28,7 @@ const createRestaurantDetailTempate = (restaurantDetail) =>
     </div>
     <img src="${restaurantDetail.pictureId ? 
         CONFIG.BASE_IMAGE_URL + CONFIG.NORMAL_RESOLUTION + restaurantDetail.pictureId
-        : 'https://dummyimage.com/811x540/a6a6a6/ffffff.png&text=404'}" class="box-image">
+        : null}" class="box-image" crossorigin="anonymous">
     `;
 
 const createMenuListTemplate = (menu) => 
@@ -59,11 +59,19 @@ const createFavoritedButtonTemplate = () => `
         </button>
         `;
 
+const createFailedToFetchMessage = (error) => `
+        <div class="error-message">
+            <h3 align="center" class="text-center" tabindex="0">${error.message}</h3>
+            <button style="margin: 0px 17.5%" id="refresh">REFRESH PAGE</button>
+        </div>
+        `;
+
 export {
     createRestaurantListTempate, 
     createRestaurantDetailTempate,
     createMenuListTemplate,
     createReviewList,
     createFavoriteButtonTemplate,
-    createFavoritedButtonTemplate
+    createFavoritedButtonTemplate,
+    createFailedToFetchMessage
 };

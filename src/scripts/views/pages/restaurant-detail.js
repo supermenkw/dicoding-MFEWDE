@@ -1,13 +1,16 @@
 import UrlParser from '../../routes/url-parser';
 import RestaurantAPISource from '../../data/restaurantapi-source';
 import { 
-    createRestaurantDetailTempate, 
-    createMenuListTemplate,
-    createReviewList,
-    createFavoriteButtonTemplate
+    createRestaurantDetailTempate,
+    createReviewList
 } from '../templates/template-creator';
 import formToJSON from '../../utils/formToJSON-helper';
 import FavoriteButtonInitiator from '../../utils/favorite-button-initiator';
+import {
+    foodArrayToContainer,
+    beverageArrayToContainer,
+    reviewsArrayToContainer
+} from '../templates/statment-creator';
 
 const RestaurantDetailPage = {
     async render() {
@@ -61,7 +64,7 @@ const RestaurantDetailPage = {
                         </form>
                     </div>
                     <div>
-                        <h4>Reviews (${restaurantDetail.consumerReviews.length})</h4>
+                        <h4>Reviews (<span id="total-review">${restaurantDetail.consumerReviews.length}</span>)</h4>
                         <div id="review-list">
                             
                         </div>
@@ -76,28 +79,15 @@ const RestaurantDetailPage = {
     async afterRender() {
         const url = UrlParser.parseActiveUrlWithoutCombiner();
         const restaurantDetail = await RestaurantAPISource.detailRestaurant(url.id);
-        
+
 
         const restaurantDetailContainer = document.querySelector('#content');
         restaurantDetailContainer.innerHTML = createRestaurantDetailTempate(restaurantDetail);
 
 
-        const restaurantFoodContainer = document.querySelector('#list-food');
-        restaurantDetail.menus.foods.forEach(menu => {
-            restaurantFoodContainer.innerHTML += createMenuListTemplate(menu);
-        });
-        
-
-        const restaurantBeverageContainer = document.querySelector('#list-beverage');
-        restaurantDetail.menus.drinks.forEach(menu => {
-            restaurantBeverageContainer.innerHTML += createMenuListTemplate(menu);
-        });
-
-
-        const restaurantReviewContainer = document.querySelector('#review-list');
-        restaurantDetail.consumerReviews.forEach(review => {
-            restaurantReviewContainer.innerHTML += createReviewList(review);
-        });
+        foodArrayToContainer(restaurantDetail, '#list-food');
+        beverageArrayToContainer(restaurantDetail,'#list-beverage');
+        reviewsArrayToContainer(restaurantDetail, '#review-list');
 
 
         FavoriteButtonInitiator.init({
@@ -111,7 +101,13 @@ const RestaurantDetailPage = {
             event.preventDefault();
             const data = formToJSON(form.elements);
     
-            RestaurantAPISource.postReview(data);
+            RestaurantAPISource.postReview(data).then((newData) => {
+                const newReview = newData.customerReviews.slice(-1)[0];
+                form.reset();
+
+                document.querySelector('#total-review').innerHTML = newData.customerReviews.length;
+                document.querySelector('#review-list').innerHTML += createReviewList(newReview);
+            });
         };
 
         form.addEventListener('submit', handleFormSubmit);
