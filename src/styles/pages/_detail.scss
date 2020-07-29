@@ -1,0 +1,73 @@
+.detail-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+
+    .box-image {
+        width: 100%;
+        border-radius: 25px;
+        order: 1;
+        
+    }
+
+    .box-content {
+        order: 2;
+        
+        .detail-title {
+            font-size: xx-large;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: #cc6600;
+        }
+
+        .detail-information {
+            font-size: large;
+            font-weight: 600;
+        }
+
+        .detail-description {
+            text-align: justify;
+            text-justify: inter-word;
+            margin-top: 10px;
+        }
+    }
+}
+
+.box-menu {
+    order: 3;
+    margin: 20px 0px;
+    
+    h4 {
+        font-size: xx-large;
+        font-weight: 600;
+        margin-bottom: 10px;
+        color: #cc6600;
+    }
+
+    .box-menu-item {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 20px;
+        text-align: center;
+
+        .foods {
+            padding: 20px 25px;
+
+            ul li {
+                list-style: none;
+            }
+        }
+
+        .beverages {
+            padding: 20px 25px;
+
+            ul li {
+                list-style: none;
+            }
+        }
+
+        .menu-type {
+            font-size: x-large;
+        }
+    }
+}

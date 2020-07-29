@@ -1,20 +1,22 @@
 import 'regenerator-runtime'; /* for async await transpile */
 import '../styles/main.css';
-import './request-data';
+import App from './views/app';
+import swRegister from './utils/sw-register';
+import WebSocketInitiator from './utils/websocket-initiator';
+import CONFIG from './globals/config';
 
-const menu = document.querySelector('#menu');
-const main = document.querySelector('main');
-const hero = document.querySelector('.hero');
-
-menu.addEventListener('click', (event) => {
-  drawer.classList.toggle('open');
-  event.stopPropagation();
+const app = new App({
+    button: document.querySelector('#hamburgerButton'),
+    drawer: document.querySelector('#navigationDrawer'),
+    content: document.querySelector('main'),
 });
 
-hero.addEventListener('click', () => {
-  drawer.classList.remove('open');
+window.addEventListener('hashchange', () => {
+    app.renderPage();
 });
 
-main.addEventListener('click', () => {
-  drawer.classList.remove('open');
+window.addEventListener('load', () => {
+    app.renderPage();
+    swRegister();
+    WebSocketInitiator.init(CONFIG.WEB_SOCKET_SERVER);
 });

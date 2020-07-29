@@ -1,0 +1,36 @@
+.box-review {
+    margin: 30px 0px;
+
+    h4 {
+        font-size: x-large;
+        color: #cc6600;
+        margin-bottom: 20px;
+    }
+
+    #review-list {
+        display: grid;
+        grid-template-columns: 60px 1fr;
+        row-gap: 25px;
+    
+        .fa-user-circle {
+            padding-top: 20%;
+            text-align: center;
+        }
+    
+        .reviewer {
+            text-align: start;
+    
+            span {
+                font-size: 0.9em;
+            }
+    
+            h5 {
+                font-size: 1.2em;
+            }
+    
+            p {
+                font-size: 1.1em;
+            }
+        }
+    }
+}

@@ -1,9 +1,36 @@
 @media screen and (min-width: 1200px) {
+
+    .breadcrumb {
+        font-size: larger;
+    }
+
+    .detail-grid {
+        grid-template-columns: repeat(2, 1fr);
+
+        .detail-image {
+            order: 2;
+        }
+    
+        .box-content {
+            order: 1;
+
+            .detail-title {
+                margin-top: 0px;
+                margin-bottom: 5px;
+            }
+        }
+    }
+
+
     .card {
         img {
             width: 100%;
             max-height: 195px;
             object-fit: cover;
         }
+    }
+
+    .flex-outer {
+        width: 70%;
     }
 }
