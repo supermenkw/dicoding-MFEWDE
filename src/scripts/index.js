@@ -1,4 +1,6 @@
-import 'regenerator-runtime'; /* for async await transpile */
+import 'regenerator-runtime';
+import './components/appbar';
+import './components/bottomfooter';
 import '../styles/main.css';
 import App from './views/app';
 import swRegister from './utils/sw-register';
@@ -18,5 +20,5 @@ window.addEventListener('hashchange', () => {
 window.addEventListener('load', () => {
     app.renderPage();
     swRegister();
-    /* WebSocketInitiator.init(CONFIG.WEB_SOCKET_SERVER); */
+    WebSocketInitiator.init(CONFIG.WEB_SOCKET_SERVER);
 });

@@ -19,10 +19,10 @@ class RestaurantAPISource {
         const response = await fetch(API_ENDPOINT.POST_REVIEW, {
             method: 'POST',
             headers: {
-                'Content-Type' : 'application/json',
-                'X-Auth-Token' : '12345'
+                'Content-Type': 'application/json',
+                'X-Auth-Token': '12345',
             },
-            body : JSON.stringify(reviewData)
+            body: JSON.stringify(reviewData),
         });
 
         return response.json();

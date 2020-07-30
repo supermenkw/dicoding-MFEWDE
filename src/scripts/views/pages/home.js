@@ -32,16 +32,16 @@ const HomePage = {
             restaurantList.slice(1, 10).forEach((restaurant) => {
                 restaurantListContainer.innerHTML += createRestaurantListTempate(restaurant);
             });
-    
+
             await document.querySelector('.loader').remove();
-        }catch(error) {
+        } catch (error) {
             restaurantListContainer.innerHTML += createFailedToFetchMessage(error);
             const refresh = await document.querySelector('#refresh');
 
+            // eslint-disable-next-line no-restricted-globals
             refresh.addEventListener('click', () => location.reload());
             document.querySelector('.loader').remove();
         }
-
     },
 };
 

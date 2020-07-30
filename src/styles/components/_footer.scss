@@ -1,7 +1,8 @@
-footer {
-    background-color: #cc6600;
+bottom-footer {
+    display: block;
     padding: 2em;
     width: 100%;
+    background-color: #cc6600;
     text-align: center;
 
     ul {
@@ -10,7 +11,6 @@ footer {
 
     li {
         list-style: none;
-        display: block;
         margin: 10px auto;
         color: white;
         font-size: 1em;

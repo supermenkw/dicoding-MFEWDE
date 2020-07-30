@@ -80,6 +80,16 @@ main {
   background-color: #004a75;
 }
 
+.empty-message {
+  font-size: xx-large;
+  text-align: center;
+  margin-top: 150px;
+  color: grey;
+  -ms-grid-column: 1;
+      grid-column-start: 1;
+  grid-column-end: 4;
+}
+
 .app-bar {
   background-color: orange;
   position: -webkit-sticky;
@@ -509,6 +519,7 @@ main {
 
 .box-menu .box-menu-item .menu-type {
   font-size: x-large;
+  margin-bottom: 10px;
 }
 
 .box-review {
@@ -589,6 +600,19 @@ main {
   font-size: 5vw;
   text-align: justify;
   text-justify: inter-word;
+}
+
+#categories {
+  margin: 20px 0px;
+  font-size: large;
+  font-weight: 600;
+}
+
+#categories .category-item {
+  background-color: #01a4cd;
+  padding: 5px 10px;
+  border-radius: 5px;
+  color: white;
 }
 
 @media screen and (min-width: 650px) {
@@ -774,22 +798,63 @@ main {
   }
 }
 
-footer {
-  background-color: #cc6600;
+bottom-footer {
+  display: block;
   padding: 2em;
   width: 100%;
+  background-color: #cc6600;
   text-align: center;
 }
 
-footer ul {
+bottom-footer ul {
   margin: 0 auto;
 }
 
-footer li {
+bottom-footer li {
   list-style: none;
-  display: block;
   margin: 10px auto;
   color: white;
   font-size: 1em;
+}
+
+.about-image {
+  border-radius: 50%;
+  width: 150px;
+  -ms-grid-column: 1;
+      grid-column-start: 1;
+  grid-column-end: 4;
+  margin: 0px auto;
+}
+
+.about-name {
+  text-align: center;
+  font-size: x-large;
+  -ms-grid-column: 1;
+      grid-column-start: 1;
+  grid-column-end: 4;
+}
+
+.about-desc {
+  margin: 0 5px;
+  -ms-grid-column: 1;
+      grid-column-start: 1;
+  grid-column-end: 4;
+}
+
+.about-desc p {
+  margin-bottom: 20px;
+}
+
+.about-desc label {
+  text-justify: auto;
+  font-size: large;
+  font-weight: 600;
+}
+
+.about-desc a {
+  text-decoration: none;
+  color: #004a75;
+  font-size: large;
+  font-weight: 600;
 }
 /*# sourceMappingURL=main.css.map */

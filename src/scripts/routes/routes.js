@@ -8,7 +8,7 @@ const routes = {
     '/home': HomePage,
     '/favorite': FavoritePage,
     '/about': AboutPage,
-    '/detail/:id' : RestaurantDetailPage
+    '/detail/:id': RestaurantDetailPage,
 };
 
-export default routes
+export default routes;

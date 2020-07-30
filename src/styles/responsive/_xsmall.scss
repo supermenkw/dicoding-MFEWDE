@@ -134,6 +134,7 @@
 
         .menu-type {
             font-size: x-large;
+            margin-bottom: 10px;
         }
     }
 }
@@ -212,5 +213,18 @@
         font-size: 5vw;
         text-align: justify;
         text-justify: inter-word;
+    }
+}
+
+#categories {
+    margin: 20px 0px;
+    font-size: large;
+    font-weight: 600;
+
+    .category-item {
+        background-color: #01a4cd;
+        padding: 5px 10px;
+        border-radius: 5px;
+        color: white;
     }
 }

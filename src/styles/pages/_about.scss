@@ -1,0 +1,37 @@
+.about-image {
+    border-radius: 50%;
+    width: 150px;
+    grid-column-start: 1;
+    grid-column-end: 4;
+    margin: 0px auto;
+}
+
+.about-name {
+    text-align: center;
+    font-size: x-large;
+    grid-column-start: 1;
+    grid-column-end: 4;
+}
+
+.about-desc {
+    margin: 0 5px;
+    grid-column-start: 1;
+    grid-column-end: 4;
+
+    p {
+        margin-bottom: 20px;
+    }
+
+    label {
+        text-justify: auto;
+        font-size: large;
+        font-weight: 600;
+    }
+
+    a {
+        text-decoration: none;
+        color: #004a75;
+        font-size: large;
+        font-weight: 600;
+    }
+}

@@ -1,12 +1,23 @@
+import { createAboutTemplate } from '../templates/template-creator';
+
 const AboutPage = {
     async render() {
         return `
-        <h2>About</h2>
+        <section>
+            <div class="container">
+                <h2 tabindex="0" class="text-center h2" id="content-title">About Me</h2>
+                <div class="grid-wrapper" id="content">
+                    
+                </div>
+            </div>
+        </section>
         `;
     },
 
     async afterRender() {
-        // Fungsi ini akan dipanggil setelah render()
+        const container = document.querySelector('#content');
+
+        container.innerHTML = createAboutTemplate();
     },
 };
 

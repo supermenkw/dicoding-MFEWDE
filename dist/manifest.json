@@ -1,7 +1,7 @@
 {
-    "name": "Movie Catalogue Lite",
-    "short_name": "Movie Lite",
-    "description": "Free Catalogue Movie for you",
+    "name": "Nongky App",
+    "short_name": "Nongky",
+    "description": "Let's hangout here, there and everwhere",
     "start_url": "/index.html",
     "display": "standalone",
     "background_color": "#FFA500",
